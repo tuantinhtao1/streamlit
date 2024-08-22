@@ -18,14 +18,6 @@ st.write(df_data)
 
 def calculate_avg_gross_sales(df_data):
     avg_gross_sales = df_data.groupby('Country')['Gross Sales'].mean().sort_values().reset_index()
-    plt.figure(figsize=(10, 6))
-    plt.bar(avg_gross_sales['Country'], avg_gross_sales['Gross Sales'], color='skyblue')
-    plt.xlabel('Country')
-    plt.ylabel('Average Gross Sales')
-    plt.title('Average Gross Sales by Country')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.savefig('avg_gross_sales3.png')
     return avg_gross_sales
 avg_gross_sales = calculate_avg_gross_sales(df_data)
 print(avg_gross_sales)
@@ -88,7 +80,6 @@ print(gross_sales_data)
 fig = px.line(gross_sales_data, x='Month Name', y=[2013, 2014], title='Gross Sales Q4: 2014 vs 2013')
 fig.update_layout(xaxis_title='Month', yaxis_title='Sum Gross Sales')
 
-fig.write_image('gross_sales_q4_2014vs2013.png') 
 st.plotly_chart(fig)
 
 
